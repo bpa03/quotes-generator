@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
+import { QuoteApp } from './QuoteApp'
 
 import './styles/styles.sass'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <QuoteApp />,
   document.getElementById('root')
 );
