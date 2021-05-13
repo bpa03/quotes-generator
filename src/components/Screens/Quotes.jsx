@@ -1,43 +1,42 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { Quote } from "../Quote.jsx";
-import { QuoteItem } from "../QuoteItem.jsx"
+import { QuoteItem } from "../QuoteItem.jsx";
 import { Author } from "../Author.jsx";
 import { Spin } from "../SpinnerLoading.jsx";
+import { getRandomQuote } from "../../lib/getRandomQuote";
 
-export const Quotes = (props) => {
-	const link = "https://quote-garden.herokuapp.com/api/v3/quotes/random";
+export const Quotes = () => {
+	const url = "https://quote-garden.herokuapp.com/api/v3/quotes/random";
 	const [quote, setQuote] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [toggle, setToggle] = useState(false);
 	const componentIsMounted = useRef(true);
 
-	useEffect(() => {
-		fetch(link)
-			.then((res) => res.json())
-			.then((data) => {
-				if (componentIsMounted.current) {
-					setQuote(data.data);
-					setLoading(false);
-				}
-			});
-	}, [link]);
-
-	const handleClick = (e) => {
-		if (loading || !componentIsMounted.current) {
-			return;
+	const fetchData = async () => {
+		const quote = await getRandomQuote(url);
+		if (componentIsMounted.current) {
+			setQuote(quote.data);
+			setLoading(false);
 		}
+	};
 
+	useEffect(() => {
+		return () => {
+			componentIsMounted.current = false;
+		}
+	}, []);
+
+	useEffect(() => {
 		setQuote([]);
 		setLoading(true);
+		fetchData(url);
+	}, [url, toggle]);
 
-		fetch(link)
-			.then((res) => res.json())
-			.then((data) => {
-				if (componentIsMounted.current) {
-					setQuote(data.data);
-					setLoading(false);
-				}
-			});
+	const handleClick = (e) => {
+		if (loading || !componentIsMounted.current) return;
+
+		setToggle(!toggle);
 	};
 
 	const elements = loading ? (
@@ -64,13 +63,13 @@ export const Quotes = (props) => {
 							onClick={handleClick}
 						>
 							random
-							<span className="material-icons quotes__random-button-icon">replay</span>
+							<span className="material-icons quotes__random-button-icon">
+								replay
+							</span>
 						</button>
 					</div>
 					<div className="quotes__list-container">
-						<ul className="quotes__list">
-							{elements}
-						</ul>
+						<ul className="quotes__list">{elements}</ul>
 					</div>
 				</div>
 			</section>
