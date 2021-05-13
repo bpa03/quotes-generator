@@ -1,13 +1,9 @@
 import React from "react";
 
-export const Quote = ({ quoteText, quoteAuthor }) => {
+export const Quote = ({ text }) => {
 	return (
 		<>
-			<li>
-				<h4>Author: {quoteAuthor}</h4>
-				<p> {quoteText}</p>
-			</li>
-			<hr />
+			<h4 className="quotes__text">"{text}"</h4>
 		</>
 	);
 };
