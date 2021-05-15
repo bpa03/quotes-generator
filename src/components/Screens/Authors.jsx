@@ -41,7 +41,7 @@ export const Authors = () => {
     quotes.map((quote) => {
       const { _id, quoteText } = quote;
       return (
-        <QuoteItem key={_id} className="mb-30">
+        <QuoteItem key={_id}>
           <Quote text={quoteText} />
         </QuoteItem>
       );
