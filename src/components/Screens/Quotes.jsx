@@ -12,14 +12,6 @@ export const Quotes = () => {
   const [toggle, setToggle] = useState(false);
   const componentIsMounted = useRef(true);
 
-  const fetchData = async () => {
-    const quote = await getRandomQuote();
-    if (componentIsMounted.current) {
-      setQuote(quote.data);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     return () => {
       componentIsMounted.current = false;
@@ -27,6 +19,14 @@ export const Quotes = () => {
   }, []);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const quote = await getRandomQuote();
+      if (componentIsMounted.current) {
+        setQuote(quote.data);
+        setLoading(false);
+      }
+    };
+
     setQuote([]);
     setLoading(true);
     fetchData();

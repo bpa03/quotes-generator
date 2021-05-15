@@ -15,19 +15,19 @@ export const Authors = () => {
   const [quotes, setQuotes] = useState([]);
   const componentIsMounted = useRef(true);
 
-  const fetchData = async () => {
-    const quotes = await getQuotesAuthor(authorName);
-    if (componentIsMounted.current) {
-      setQuotes(quotes);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const quotes = await getQuotesAuthor(authorName);
+      if (componentIsMounted.current) {
+        setQuotes(quotes);
+        setLoading(false);
+      }
+    };
+
     setLoading(true);
     setQuotes([]);
     fetchData();
-  }, []);
+  }, [authorName]);
 
   useEffect(() => {
     return () => {
