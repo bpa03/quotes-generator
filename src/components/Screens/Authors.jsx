@@ -40,9 +40,8 @@ export const Authors = () => {
   ) : (
     quotes.map((quote) => {
       const { _id, quoteText } = quote;
-      console.log(_id);
       return (
-        <QuoteItem key={_id}>
+        <QuoteItem key={_id} className="mb-30">
           <Quote text={quoteText} />
         </QuoteItem>
       );
@@ -54,15 +53,15 @@ export const Authors = () => {
       <section className="authors page__authors">
         <div className="authors__inner">
           <div className="authors__link-container">
-            <Link to="/">
-              Random
-              <span className="material-icons quotes__random-button-icon">
+            <Link to="/" className="authors__link">
+              random
+              <span className="material-icons authors__random-button-icon">
                 replay
               </span>
             </Link>
           </div>
           <div className="authors__list-container">
-            <h2> {authorName} </h2>
+            <h2 className="authors__author-name"> {authorName} </h2>
             <ul className="authors__list">{elements}</ul>
           </div>
         </div>

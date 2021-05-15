@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Quote = ({ text, styles }) => {
+export const Quote = ({ text }) => {
   return (
     <>
-      <h4 className="quotes__text" {...styles}>"{text}"</h4>
+      <h4 className="quotes__text">"{text}"</h4>
     </>
   );
 };
