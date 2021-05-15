@@ -4,7 +4,7 @@
   
 .quotes__list-container
   width: 100%
-  height: 90%
+  height: 85%
   margin: 0 auto
 
 .quotes__container-button
@@ -15,12 +15,17 @@
   align-items: center
 
 .quotes__list
-  width: 720px
+  width: 100%
   height: 100%
   margin: 0 auto
   display: flex
   justify-content: center
   align-items: center
+
+@media only screen and (min-width:1440px)
+  .quotes__list
+    width: 720px
+
 
 .quotes__list-item
   width: 100%
@@ -37,12 +42,16 @@
     content: ""
     width: 8px
     top: 0
-    left: -3rem
+    left: 0
     height: 100%
     background-color: $primary-color
 
+@media only screen and (min-width:1440px)
+  .quotes__text::before
+    left: -3rem
+
 .quotes__author-link
-  background-color: transparent
+  background-color: $secondary-color
   width: 100%
   padding: 2.1em 1.667em
   margin-top: 5.56em
@@ -55,19 +64,30 @@
     & .quotes__author-arrow-icon
       color: #fff
 
+@media only screen and (min-width:1440px)
+  .quotes__author-link
+    background: transparent
+
 .quotes__author
   font-size: 1.3em
-  color: $quotes-link-color
+  color: #fff
   @include transition(.3s color)
+
+@media only screen and (min-width:1440px)
+  .quotes__author
+    color: $quotes-link-color
 
 .quotes__random-buttom
   font-size: 1em
   font-family: $font-raleway
   font-weight: 500
   cursor: pointer
-  &:hover .quotes__random-button-icon
-    color: $secondary-color
-    @include animation(random-button-icon-rotate 1500ms linear infinite)
+
+@media only screen and (min-width:1440px)
+  .quotes__random-buttom
+    &:hover .quotes__random-button-icon
+      color: $secondary-color
+      @include animation(random-button-icon-rotate 1500ms linear infinite)
 
 .quotes__random-button-icon
   vertical-align: middle
@@ -75,6 +95,10 @@
   color: $quotes-link-color
 
 .quotes__author-arrow-icon
-  color: transparent
+  color: #fff
   @include transition(color .3s)
   font-size: 2rem !important
+
+@media only screen and (min-width:1440px)
+  .quotes__author-arrow-icon
+    background: transparent
