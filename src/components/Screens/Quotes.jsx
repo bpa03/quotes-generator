@@ -7,14 +7,13 @@ import { Spin } from "../SpinnerLoading.jsx";
 import { getRandomQuote } from "../../lib/getRandomQuote";
 
 export const Quotes = () => {
-  const url = "https://quote-garden.herokuapp.com/api/v3/quotes/random";
   const [quote, setQuote] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toggle, setToggle] = useState(false);
   const componentIsMounted = useRef(true);
 
   const fetchData = async () => {
-    const quote = await getRandomQuote(url);
+    const quote = await getRandomQuote();
     if (componentIsMounted.current) {
       setQuote(quote.data);
       setLoading(false);
@@ -30,8 +29,8 @@ export const Quotes = () => {
   useEffect(() => {
     setQuote([]);
     setLoading(true);
-    fetchData(url);
-  }, [url, toggle]);
+    fetchData();
+  }, [toggle]);
 
   const handleClick = (e) => {
     if (loading || !componentIsMounted.current) return;

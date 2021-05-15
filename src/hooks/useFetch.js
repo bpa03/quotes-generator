@@ -5,7 +5,6 @@ export const useFetch = (url) => {
   const [values, setValues] = useState({
     data: null,
     loading: true,
-    error: null
   });
 
   useEffect(() => {
@@ -17,17 +16,15 @@ export const useFetch = (url) => {
   useEffect(() => {
     setValues({
       data: null,
-      loading: true,
-      error: null
+      loading: true
     });
     fetch(url)
       .then(res => res.json())
       .then(data => {
         if (isMounted.current) {
           setValues({
-            data,
+            data: data.data,
             loading: false,
-            error: null
           });
         };
       });
