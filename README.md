@@ -6,7 +6,7 @@
 * [Setup](#setup)
 
 ## Demo
-Here is a working live demo : [https://quotes-generator-dusky.vercel.app](https://bpa03.github.io/dev-challange-todo-app/)
+Here is a working live demo : [https://quotes-generator-dusky.vercel.app](https://quotes-generator-dusky.vercel.app/)
 
 ## General info
 This project is a challenge front-end, part of the challenges proposed by the website "https://devchallenges.io/" 
