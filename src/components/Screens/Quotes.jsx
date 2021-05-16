@@ -42,11 +42,11 @@ export const Quotes = () => {
     <Spin />
   ) : (
     quote.map((quote) => {
-      const { _id, quoteAuthor, quoteText } = quote;
+      const { _id, quoteAuthor, quoteText, quoteGenre } = quote;
       return (
         <QuoteItem key={_id}>
           <Quote text={quoteText} />
-          <Author author={quoteAuthor} />
+          <Author author={quoteAuthor} genre={quoteGenre} />
         </QuoteItem>
       );
     })

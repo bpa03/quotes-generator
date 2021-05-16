@@ -1,10 +1,12 @@
 .quotes__inner
   width: 100%
   height: 100%
+  display: flex
+  flex-direction: column
   
 .quotes__list-container
   width: 100%
-  height: 85%
+  height: 90%
   margin: 0 auto
 
 .quotes__container-button
@@ -22,10 +24,9 @@
   justify-content: center
   align-items: center
 
-@media only screen and (min-width:1440px)
+@media only screen and (min-width:750px)
   .quotes__list
     width: 720px
-
 
 .quotes__list-item
   width: 100%
@@ -64,7 +65,7 @@
     & .quotes__author-arrow-icon
       color: #fff
 
-@media only screen and (min-width:1440px)
+@media only screen and (min-width:750px)
   .quotes__author-link
     background: transparent
 
@@ -73,9 +74,17 @@
   color: #fff
   @include transition(.3s color)
 
-@media only screen and (min-width:1440px)
+@media only screen and (min-width:750px)
   .quotes__author
     color: $quotes-link-color
+
+.quotes__genre
+  display: block
+  margin: .444rem 0 0 0
+  font-size: .7778rem
+  color: $genre-author-color
+  font-family: $font-raleway
+  font-weight: 500
 
 .quotes__random-buttom
   font-size: 1em
