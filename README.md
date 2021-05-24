@@ -17,7 +17,6 @@ Project is created with:
 * SASS: ("1.32.13")
   
 ## Setup
-To run this project, just navigate to the project folder and open the HTML file.
 ```
 # Clone this repository
 $ git clone https://github.com/bpa03/quotes-generator.git
